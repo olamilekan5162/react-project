@@ -7,7 +7,7 @@
     height: fit-content;
     font-family: sans-serif;
     padding: 20px;
-    gap: 15px;
+    gap: 30px;
 }
 
 h1 {
@@ -23,6 +23,23 @@ h1 {
     align-items: center;
     padding-top: 30px;
     color: black;
+}
+
+.heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: gray;
+    font-size: x-large;
+    font-weight: 700;
+}
+
+.heading .quant {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 125px;
 }
 
 .details {
@@ -54,13 +71,33 @@ h1 {
 
 .pricing p {
     font-size: x-large;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .quantity {
-    border: 1px solid grey;
-    border-radius: 50px;
-    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+    padding: 0 10px;
+    
+}
+
+.quantity button{
+    border: none;
+    background-color: lightgray;
+    width: 30px;
+    height: 30px;
+}
+
+.quantity button:hover {
+    background-color: grey;
+    color: white;
+}
+
+.quantity p {
+    font-weight: 300;
+    font-size: large;
 }
 
 

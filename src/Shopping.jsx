@@ -23,19 +23,28 @@ const Shopping = () => {
     return (
         <div className="container">
             <h1>Shopping Cart</h1>
+            <div className="heading">
+                <div>Product</div>
+                <div class = "quant">
+                    <div>Price</div>
+                    <div>Quantity</div>
+                    <div>Sub Total</div>
+                </div>
+
+            </div>
             
             <div className="cart">
                 <div className="details">
                     <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="product" />
-                    <p>Foil cake</p>
+                    <p>Traveling Bag</p>
                 </div>
                 <div className="pricing">
                     <p>$300.00</p>
 
                     <div className="quantity">
-                        <button onClick={Increment}>+</button>
-                        <input type="number" value={count}/>
-                        <button onClick={Decrement}>-</button>
+                        <button class="btn1" onClick={Increment}>+</button>
+                        <p>{count}</p>
+                        <button class="btn2" onClick={Decrement}>-</button>
                     </div>
 
                     <p>$300.00</p>
@@ -43,6 +52,27 @@ const Shopping = () => {
                 </div>
 
             </div>
+
+            <div className="cart">
+                <div className="details">
+                    <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="product" />
+                    <p>Men round neck</p>
+                </div>
+                <div className="pricing">
+                    <p>$1500.00</p>
+
+                    <div className="quantity">
+                        <button class="btn1" onClick={Increment}>+</button>
+                        <p>{count}</p>
+                        <button class="btn2" onClick={Decrement}>-</button>
+                    </div>
+
+                    <p>$150.00</p>
+
+                </div>
+
+            </div>
+
             <div className="calculate">
                 <div className="sub-total">
                     <p class="head">Sub Total</p>
