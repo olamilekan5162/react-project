@@ -2,7 +2,8 @@ import './styles/Shopping.css'
 import { useState } from "react";
 
 const Shopping = () => {
-    const [count, setCount] = useState(0);
+
+    const [count, setCount, ] = useState(0);
     
     const Increment = () => {
         setCount(count + 1)
@@ -19,13 +20,36 @@ const Shopping = () => {
     const SubTotal = () => {
         
     }
+
+    const fetchStore = async () => {
+        try{
+            const response = await fetch('https://fakestoreapi.com/products?limit=1')
+            if (!response.ok){
+                throw new Error('cannot fetch market')
+            }
+            const store = await response.json();
+            return store
+        }
+        catch(e){
+            alert(e)
+        }
+    }
+
+    const displayStore = () => {
+       const data = fetchStore()
+        data.forEach(cart => {
+            <p>{cart.title}</p>
+        
+        });
+
+    }
     
     return (
         <div className="container">
-            <h1>Shopping Cart</h1>
+            <h1>Oracle Shopping Cart</h1>
             <div className="heading">
                 <div>Product</div>
-                <div class = "quant">
+                <div className = "quant">
                     <div>Price</div>
                     <div>Quantity</div>
                     <div>Sub Total</div>
@@ -36,15 +60,14 @@ const Shopping = () => {
             <div className="cart">
                 <div className="details">
                     <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="product" />
-                    <p>Traveling Bag</p>
+                    <p>School Bag</p>
                 </div>
                 <div className="pricing">
                     <p>$300.00</p>
-
                     <div className="quantity">
-                        <button class="btn1" onClick={Increment}>+</button>
+                        <button className="btn1" onClick={Increment}>+</button>
                         <p>{count}</p>
-                        <button class="btn2" onClick={Decrement}>-</button>
+                        <button className="btn2" onClick={Decrement}>-</button>
                     </div>
 
                     <p>$300.00</p>
@@ -62,9 +85,9 @@ const Shopping = () => {
                     <p>$1500.00</p>
 
                     <div className="quantity">
-                        <button class="btn1" onClick={Increment}>+</button>
+                        <button className="btn1" onClick={Increment}>+</button>
                         <p>{count}</p>
-                        <button class="btn2" onClick={Decrement}>-</button>
+                        <button className="btn2" onClick={Decrement}>-</button>
                     </div>
 
                     <p>$150.00</p>
