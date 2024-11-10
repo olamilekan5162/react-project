@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    border: 1px solid gray;
+    border: 1px solid black;
     border-radius: 5px;
     width: 100%;
     height: fit-content;
@@ -11,7 +11,7 @@
 }
 
 h1 {
-    color: gray;
+    color: black;
     margin-top: 60px;
 }
 
@@ -30,7 +30,7 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: gray;
+    color: black;
     font-size: x-large;
     font-weight: 700;
 }
@@ -85,14 +85,15 @@ h1 {
 
 .quantity button{
     border: none;
-    background-color: lightgray;
+    background-color: #f3f4f6;
     width: 30px;
     height: 30px;
 }
 
 .quantity button:hover {
-    background-color: grey;
+    background-color: lightgray;
     color: white;
+    
 }
 
 .quantity p {
@@ -104,7 +105,7 @@ h1 {
 .calculate {
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: #f3f4f6;
     border-radius: 5px;
     padding: 20px;
 }
@@ -121,16 +122,17 @@ h1 {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid grey;
+    border-top: 1px solid black;
 }  
 
 .head {
     font-weight: 700;
     font-size: 25px;
-    color: grey;
+    color: black;
 }
 
 .price {
     font-weight: 700;
     font-size: x-large;
+    color: black;
 }
