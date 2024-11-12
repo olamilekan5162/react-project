@@ -3,46 +3,29 @@ import { useState } from "react";
 
 const Shopping = () => {
 
-    const [count, setCount, ] = useState(0);
+    const [count1, setCount1 ] = useState(1);
+    const [count2, setCount2 ] = useState(1);
+
+    const price1 = 200
+    const price2 = 300
     
-    const Increment = () => {
-        setCount(count + 1)
+    const Increment = (id) => {
+        if (id === 1){setCount1(count1 + 1)}
+        else if (id === 2){setCount2(count2 + 1)}
     };
 
-    const Decrement = () => {
-        if (count <= 0){
+    const Decrement = (id) => {
+        if (count1 <= 0 | count2 <= 0 ){
             alert("Quantity cannot be less than 0")
         }else{
-            setCount(count - 1)
+            if (id === 1){setCount1(count1 - 1)}
+            else if (id === 2){setCount2(count2 - 1)}
         }
     }
 
-    const SubTotal = () => {
-        
-    }
-
-    const fetchStore = async () => {
-        try{
-            const response = await fetch('https://fakestoreapi.com/products?limit=1')
-            if (!response.ok){
-                throw new Error('cannot fetch market')
-            }
-            const store = await response.json();
-            return store
-        }
-        catch(e){
-            alert(e)
-        }
-    }
-
-    const displayStore = () => {
-       const data = fetchStore()
-        data.forEach(cart => {
-            <p>{cart.title}</p>
-        
-        });
-
-    }
+    const subTotal1 = count1 * price1
+    const subTotal2 = count2 * price2
+    const total = subTotal1 + subTotal2
     
     return (
         <div className="container">
@@ -63,14 +46,14 @@ const Shopping = () => {
                     <p>School Bag</p>
                 </div>
                 <div className="pricing">
-                    <p>$300.00</p>
+                    <p>${price1}</p>
                     <div className="quantity">
-                        <button className="btn1" onClick={Increment}>+</button>
-                        <p>{count}</p>
-                        <button className="btn2" onClick={Decrement}>-</button>
+                        <button className="btn1" onClick={() => Increment(1)}>+</button>
+                        <p>{count1}</p>
+                        <button className="btn2" onClick={() => Decrement(1)}>-</button>
                     </div>
 
-                    <p>$300.00</p>
+                    <p>${subTotal1}</p>
 
                 </div>
 
@@ -82,15 +65,15 @@ const Shopping = () => {
                     <p>Men round neck</p>
                 </div>
                 <div className="pricing">
-                    <p>$1500.00</p>
+                    <p>${price2}</p>
 
                     <div className="quantity">
-                        <button className="btn1" onClick={Increment}>+</button>
-                        <p>{count}</p>
-                        <button className="btn2" onClick={Decrement}>-</button>
+                        <button className="btn1" onClick={() => Increment(2)}>+</button>
+                        <p>{count2}</p>
+                        <button className="btn2" onClick={() => Decrement(2)}>-</button>
                     </div>
 
-                    <p>$150.00</p>
+                    <p>${subTotal2}</p>
 
                 </div>
 
@@ -99,13 +82,13 @@ const Shopping = () => {
             <div className="calculate">
                 <div className="sub-total">
                     <p class="head">Sub Total</p>
-                    <p class="price">$500.00</p>
+                    <p class="price">${total}</p>
 
                 </div>
 
                 <div className="total">
                     <p class="head">Total</p>
-                    <p class="price">$1000.00</p>
+                    <p class="price">${total}</p>
 
                 </div>
 
