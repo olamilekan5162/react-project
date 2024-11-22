@@ -21,20 +21,18 @@ const Shopping = () => {
         }
     ]
 
-    
-    const Increment = (id) => {
-        if (id === 1){setCount1(count1 + 1)}
-        else if (id === 2){setCount2(count2 + 1)}
-    };
+    const increment = (id) => {
+        setCount (count + 1)
+    }
 
-    const Decrement = (id) => {
-        if (count1 <= 0 | count2 <= 0 ){
-            alert("Quantity cannot be less than 0")
-        }else{
-            if (id === 1){setCount1(count1 - 1)}
-            else if (id === 2){setCount2(count2 - 1)}
+    const decrement = (id) => {
+        if (count <= 0){
+            alert("quantity can not be less than 0")
+        }else {
+            setCount(count - 1)
         }
     }
+
 
     
     return (
@@ -49,58 +47,40 @@ const Shopping = () => {
                 </div>
 
             </div>
+
             {products.map((product) => {
-                <div className="cart">
-                    <div className="details">
-                        <img src={product.image} alt="product" />
-                        <p>{product.name}</p>
-                    </div>
-                    <div className="pricing">
-                        <p>${product.price}</p>
-                        <div className="quantity">
-                            <button className="btn1">+</button>
-                            <p>{count}</p>
-                            <button className="btn2">-</button>
+                return (
+                    <div className="cart" key={product.id}>
+                        <div className="details">
+                            <img src={product.image} alt="product" />
+                            <p>{product.name}</p>
+                        </div>
+                        <div className="pricing">
+                            <p>${product.price}</p>
+                            <div className="quantity">
+                                <button className="btn1" onClick={() => decrement(product.id)}>-</button>
+                                <p>{count}</p>
+                                <button className="btn2" onClick={() => increment(product.id)}>+</button>
+                            </div>
+                            <p>${subTotal}</p>
                         </div>
 
-                        <p>${subTotal}</p>
-
-                    </div>
-
-                </div>
-            })}
-            
-
-            <div className="cart">
-                <div className="details">
-                    <img src="" alt="product" />
-                    <p>Men round neck</p>
-                </div>
-                <div className="pricing">
-                    <p>${price2}</p>
-
-                    <div className="quantity">
-                        <button className="btn1" onClick={() => Increment(2)}>+</button>
-                        <p>{count2}</p>
-                        <button className="btn2" onClick={() => Decrement(2)}>-</button>
-                    </div>
-
-                    <p>${subTotal2}</p>
-
                 </div>
 
-            </div>
+                )
+                
+                })}
 
             <div className="calculate">
                 <div className="sub-total">
-                    <p class="head">Sub Total</p>
-                    <p class="price">${total}</p>
+                    <p className="head">Sub Total</p>
+                    <p className="price">$200</p>
 
                 </div>
 
                 <div className="total">
-                    <p class="head">Total</p>
-                    <p class="price">${total}</p>
+                    <p className="head">Total</p>
+                    <p className="price">$200s</p>
 
                 </div>
 
