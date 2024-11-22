@@ -3,11 +3,24 @@ import { useState } from "react";
 
 const Shopping = () => {
 
-    const [count1, setCount1 ] = useState(1);
-    const [count2, setCount2 ] = useState(1);
+    const [count, setCount ] = useState(1);
+    const [subTotal, setSubTotal] = useState(0)
 
-    const price1 = 200
-    const price2 = 300
+    const products = [
+        {
+            "id": 1,
+            "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+            "name": "School Bag",
+            "price": 200 
+        },
+        {
+            "id": 2,
+            "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
+            "name": "Men round Neck",
+            "price": 200 
+        }
+    ]
+
     
     const Increment = (id) => {
         if (id === 1){setCount1(count1 + 1)}
@@ -23,9 +36,6 @@ const Shopping = () => {
         }
     }
 
-    const subTotal1 = count1 * price1
-    const subTotal2 = count2 * price2
-    const total = subTotal1 + subTotal2
     
     return (
         <div className="container">
@@ -39,29 +49,31 @@ const Shopping = () => {
                 </div>
 
             </div>
-            
-            <div className="cart">
-                <div className="details">
-                    <img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt="product" />
-                    <p>School Bag</p>
-                </div>
-                <div className="pricing">
-                    <p>${price1}</p>
-                    <div className="quantity">
-                        <button className="btn1" onClick={() => Increment(1)}>+</button>
-                        <p>{count1}</p>
-                        <button className="btn2" onClick={() => Decrement(1)}>-</button>
+            {products.map((product) => {
+                <div className="cart">
+                    <div className="details">
+                        <img src={product.image} alt="product" />
+                        <p>{product.name}</p>
+                    </div>
+                    <div className="pricing">
+                        <p>${product.price}</p>
+                        <div className="quantity">
+                            <button className="btn1">+</button>
+                            <p>{count}</p>
+                            <button className="btn2">-</button>
+                        </div>
+
+                        <p>${subTotal}</p>
+
                     </div>
 
-                    <p>${subTotal1}</p>
-
                 </div>
-
-            </div>
+            })}
+            
 
             <div className="cart">
                 <div className="details">
-                    <img src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="product" />
+                    <img src="" alt="product" />
                     <p>Men round neck</p>
                 </div>
                 <div className="pricing">
